@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+from devito import norm
 from devito.logger import info
 from devito import norm
 from examples.seismic.elastic import ElasticWaveSolver

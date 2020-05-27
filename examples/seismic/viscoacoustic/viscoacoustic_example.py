@@ -1,6 +1,10 @@
 import numpy as np
 from devito.logger import info
+<<<<<<< HEAD
 from devito import norm
+=======
+from devito import configuration, norm
+>>>>>>> tests: Use Devito norm
 from examples.seismic.viscoacoustic import ViscoacousticWaveSolver
 from examples.seismic import demo_model, setup_geometry, seismic_args
 
