@@ -1,6 +1,9 @@
 import numpy as np
 import pytest
+<<<<<<< HEAD
 
+=======
+>>>>>>> tests: ADD float64 in pytest
 from devito import norm
 from devito.logger import info
 from devito import norm
@@ -36,8 +39,12 @@ def run(shape=(50, 50), spacing=(20.0, 20.0), tn=1000.0,
             [rec1, rec2, v, tau])
 
 
+@pytest.mark.parametrize("dtype", [("float32"), ("float64")])
 def test_elastic():
-    _, _, _, [rec1, rec2, v, tau] = run()
+
+    dtype = eval((''.join(['np.', dtype])))
+
+    _, _, _, [rec1, rec2, v, tau] = run(dtype=dtype)
     assert np.isclose(norm(rec1), 19.25636, atol=1e-3, rtol=0)
     assert np.isclose(norm(rec2), 0.627606, atol=1e-3, rtol=0)
 
@@ -48,7 +55,6 @@ def test_elastic_stability(ndim):
     spacing = tuple([20]*ndim)
     _, _, _, [rec1, rec2, v, tau] = run(shape=shape, spacing=spacing, tn=20000.0, nbl=0)
     assert np.isfinite(norm(rec1))
-
 
 if __name__ == "__main__":
     description = ("Example script for a set of elastic operators.")
