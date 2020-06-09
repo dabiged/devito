@@ -1,12 +1,7 @@
 import numpy as np
 import pytest
-<<<<<<< HEAD
-
-=======
->>>>>>> tests: ADD float64 in pytest
 from devito import norm
 from devito.logger import info
-from devito import norm
 from examples.seismic.elastic import ElasticWaveSolver
 from examples.seismic import demo_model, setup_geometry, seismic_args
 
@@ -55,6 +50,7 @@ def test_elastic_stability(ndim):
     spacing = tuple([20]*ndim)
     _, _, _, [rec1, rec2, v, tau] = run(shape=shape, spacing=spacing, tn=20000.0, nbl=0)
     assert np.isfinite(norm(rec1))
+
 
 if __name__ == "__main__":
     description = ("Example script for a set of elastic operators.")
