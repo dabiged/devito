@@ -40,7 +40,7 @@ def test_viscoelastic(dtype):
 
     dtype = eval((''.join(['np.', dtype])))
 
-    _, _, _, [rec1, rec2, v, tau] = run()
+    _, _, _, [rec1, rec2, v, tau] = run(dtype=dtype)
     assert np.isclose(norm(rec1), 12.28040, atol=1e-3, rtol=0)
     assert np.isclose(norm(rec2), 0.312461, atol=1e-3, rtol=0)
 

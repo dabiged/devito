@@ -29,13 +29,12 @@ def run(shape=(50, 50), spacing=(20.0, 20.0), tn=1000.0,
     info("Applying Forward")
     # Define receiver geometry (spread across x, just below surface)
     rec1, rec2, v, tau, summary = solver.forward(autotune=autotune)
-    print(norm(rec1))
     return (summary.gflopss, summary.oi, summary.timings,
             [rec1, rec2, v, tau])
 
 
 @pytest.mark.parametrize("dtype", [("float32"), ("float64")])
-def test_elastic():
+def test_elastic(dtype):
 
     dtype = eval((''.join(['np.', dtype])))
 

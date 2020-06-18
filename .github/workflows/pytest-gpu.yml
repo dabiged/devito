@@ -62,6 +62,10 @@ jobs:
         pgaccelinfo
         pytest --cov --cov-config=.coveragerc --cov-report=xml ${{ matrix.test_file }}
         pytest --cov --cov-config=.coveragerc --cov-report=xml examples/seismic/elastic/elastic_example.py
+        pytest --cov --cov-config=.coveragerc --cov-report=xml examples/seismic/acoustic/acoustic_example.py
+        pytest --cov --cov-config=.coveragerc --cov-report=xml examples/seismic/viscoacoustic/viscoacoustic_example.py
+        pytest --cov --cov-config=.coveragerc --cov-report=xml examples/seismic/viscoelastic/viscoelastic_example.py
+
         if [ "${{ matrix.name }}" == 'pytest-gpu-omp' ]; then
             pytest --cov --cov-config=.coveragerc --cov-report=xml examples/seismic/viscoelastic/viscoelastic_example.py
         fi
