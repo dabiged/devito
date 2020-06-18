@@ -60,4 +60,4 @@ if __name__ == "__main__":
 
     run(shape=shape, spacing=spacing, nbl=args.nbl, tn=tn, opt=args.opt,
         space_order=args.space_order, autotune=args.autotune, constant=args.constant,
-        kernel=args.kernel, dtype=dtype)
+        kernel='blanch_symes', dtype=dtype)
